@@ -23,14 +23,14 @@ If I were to redo the server I would chose something like Ubuntu Server, CentOS,
 
 
 ### Current Docker Containers ###
-| Container Name | Bound Ports | Bound Volumes |  
-| -------------- | ----------- | ------------- |  
-| Heimdall       | 80 -> 9080  |       ?       |  
-| Home Assistant |     ?       |       ?       |  
-| InfluxDB       |     ?       |       ?       |  
-| Grafana        |     ?       |       ?       |  
-| PiHole         |     ?       |       ?       |  
-| Torrents-CSV   |     ?       |       ?       |  
+| Container Name | Bound Ports | Bound Volumes | 
+| -------------- | ----------- | ------------- | 
+| Heimdall       | 80 -> 9080  |       ?       | 
+| Home Assistant |     ?       |       ?       | 
+| InfluxDB       |     ?       |       ?       | 
+| Grafana        |     ?       |       ?       | 
+| PiHole         |     ?       |       ?       | 
+| Torrents-CSV   |     ?       |       ?       | 
 
 
 

@@ -30,40 +30,57 @@ To do this, I followed the guide found on their [build page](https://github.com/
 
 First you start out by making sure you have all the build dependencies.
 
-	sudo apt-get install libtool libusb-1.0-0-dev librtlsdr-dev rtl-sdr build-essential autoconf cmake pkg-config
+```bash
+sudo apt-get install libtool \
+libusb-1.0-0-dev \
+librtlsdr-dev \
+rtl-sdr \
+build-essential \
+autoconf \
+cmake \
+pkg-config
+```
 
 Next you want to clone the git repo.
 
-	git clone https://github.com/merbanan/rtl_433
+```bash
+git clone https://github.com/merbanan/rtl_433
+```
 
 Now you will actually do the building of the package. 
 Note, you only need to have root permissions for the last step (make install), due to it copying the executable to a system directory.
 
-	cd rtl_433/
-	mkdir build
-	cd build
-	cmake ..
-	make
-	sudo make install
+```bash
+cd rtl_433/
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
 
 ## Running RTL_433 ##
 
 At this point you are ready to run rtl_433. Ensure you have your dongle connected to the system and then run the following.
 
-	sudo rtl_433 -F "mqtt://<mqtt-broker-IP>,retain=0,devices=rtl_433[/model][/id]"
+```bash
+sudo rtl_433 -F "mqtt://<mqtt-broker-IP>,retain=0,devices=rtl_433[/model][/id]"
+```
 
 You will want to customize this command by changing the mqtt broker IP and adjusting "devices" to match your mqtt topic.
-In this case the topics will be structured like this:  
+In this case the topics will be structured like this: 
 
-	rtl_433/Acurite_3n1_sensor/temperature_F  
-	rtl_433/Acurite_3n1_sensor/humidity  
-	rtl_433/Acurite_3n1_sensor/battery  
-	rtl_433/Acurite_3n1_sensor/channel  
-	rtl_433/Acurite_3n1_sensor/wind_speed_mph  
-	rtl_433/Acurite_3n1_sensor/sequence_num  
-	rtl_433/Acurite_3n1_sensor/sensor_id  
-	rtl_433/Acurite_3n1_sensor/messate_type  
-	rtl_433/Acurite_3n1_sensor/time  
+```text
+rtl_433/Acurite_3n1_sensor/temperature_F  
+rtl_433/Acurite_3n1_sensor/humidity  
+rtl_433/Acurite_3n1_sensor/battery  
+rtl_433/Acurite_3n1_sensor/channel  
+rtl_433/Acurite_3n1_sensor/wind_speed_mph  
+rtl_433/Acurite_3n1_sensor/sequence_num  
+rtl_433/Acurite_3n1_sensor/sensor_id  
+rtl_433/Acurite_3n1_sensor/messate_type  
+rtl_433/Acurite_3n1_sensor/time  
+```
 
 These are just the topics that my sensor puts out, yours may vary. It's important to note that it is likely your "sensor_id" number will change when you change batteries in your sensor.
 Make sure you prepare for that when setting up automations or template in Home Assistant.
@@ -76,28 +93,30 @@ Naturally, you may need to edit the topic to match your topic settings. As the d
 Now we are going to setup the sensor so that Home Assistant knows a little about the information that's coming in over mqtt. To do this you will want to edit the yaml file where you store your sensor configurations, for me that is in sensor.yaml
 Here is a snippet of my configuration for this sensor.
 
-	  ## Temperature ##
-	  - platform: mqtt
-	    name: "rtl_433_acurite_3n1_temperature"
-	    state_topic: "rtl_433/Acurite_3n1_sensor/temperature_F"
-	    unit_of_measurement: "°F"
-	
-	  ## Humidity ##
-	  - platform: mqtt
-	    name: "rtl_433_accurite_3n1_humidity"
-	    state_topic: "rtl_433/Acurite_3n1_sensor/humidity"
-	    unit_of_measurement: "%"
-	
-	  ## Battery ##
-	  - platform: mqtt
-	    name: "rtl_433_accurite_3n1_battery"
-	    state_topic: "rtl_433/Acurite_3n1_sensor/battery"
-	
-	  ## Wind Speed ##
-	  - platform: mqtt
-	    name: "rtl_433_accurite_3n1_windspeed"
-	    state_topic: "rtl_433/Acurite_3n1_sensor/wind_speed_mph"
-	    unit_of_measurement: "mph"
+```text
+  ## Temperature ##
+  - platform: mqtt
+    name: "rtl_433_acurite_3n1_temperature"
+    state_topic: "rtl_433/Acurite_3n1_sensor/temperature_F"
+    unit_of_measurement: "°F"
+
+  ## Humidity ##
+  - platform: mqtt
+    name: "rtl_433_accurite_3n1_humidity"
+    state_topic: "rtl_433/Acurite_3n1_sensor/humidity"
+    unit_of_measurement: "%"
+
+  ## Battery ##
+  - platform: mqtt
+    name: "rtl_433_accurite_3n1_battery"
+    state_topic: "rtl_433/Acurite_3n1_sensor/battery"
+
+  ## Wind Speed ##
+  - platform: mqtt
+    name: "rtl_433_accurite_3n1_windspeed"
+    state_topic: "rtl_433/Acurite_3n1_sensor/wind_speed_mph"
+    unit_of_measurement: "mph"
+```
 
 I needed to enter the unit_of_measurement descriptor so Home Assistant knows that kind of unit each reading was, which allows me to have a graph of the information on my lovelace dashboard.
 When entering your sensor details you will want to make sure the state_topic matches what you have configured for your sensor. The name you give here will be the name of the sensor in Home Assistant.
