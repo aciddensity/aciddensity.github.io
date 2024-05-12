@@ -2,7 +2,7 @@
 title: Autostart rtl_433 with Supervisor
 date: 2019-11-17 00:00
 category: Home-Automation
-tags: Linux, Home Assistant, RTL_SDR, Radio
+tags: Linux Home-Assistant RTL_SDR Radio
 slug:
 authors: Acid Density
 summary: Setting up rtl_433 to auto start with Supervisor

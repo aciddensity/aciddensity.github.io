@@ -2,7 +2,7 @@
 title: 433mhz sensor in Home Assistant
 date: 2019-10-02 00:00
 category: Home-Automation
-tags: Linux, Home Assistant, RTL_SDR, Radio
+tags: Linux Home-Assistant RTL_SDR Radio
 authors: Acid Density
 summary: Getting a 433mhz weather station working in Home Assistant
 published: true
