@@ -7,7 +7,7 @@ tags:
 slug: 
 authors: Acid Density
 summary: 
-published: false
+published: true
 layout: post
 ---
 
