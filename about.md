@@ -3,7 +3,7 @@ layout: post
 title: About
 ---
 
-![Image of Agent Chimp](/images/agent-chimp.png){: width:"25%" }
+![Image of Agent Chimp](/images/agent-chimp.png){: width="25%" }
 *Agent Chimp aka Acid Density*
 
 In a world filled with contraptions, gadgets, and gizmos.
