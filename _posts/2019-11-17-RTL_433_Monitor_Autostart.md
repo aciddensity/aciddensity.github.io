@@ -20,18 +20,18 @@ Make some directories for supervisor to use, and ensure your user has permission
 
 ```bash
 sudo mkdir /var/log/supervisor
-sudo chown -R <user>:<user> /var/log/supervisor
+sudo chown -R [user]:[user] /var/log/supervisor
 sudo mkdir /var/run/supervisor
-sudo chown -R <user>:<user> /var/run/supervisor
+sudo chown -R [user]:[user] /var/run/supervisor
 ```
 
-Create the Supervisor conf file 
+Create the Supervisor conf file
 
 ```bash
 sudo nano /usr/local/etc/supervisord.conf
 ```
 
-Here is the configuration that I used, you will want to replace <user> with your user name.
+Here is the configuration that I used, you will want to replace [user] with your user name.
 
 ```text
 [supervisord]
@@ -40,8 +40,8 @@ user = <user>
 identifier = supervisor
 directory = /tmp
 logfile = /var/log/supervisor/supervisord.log
-	
-	
+
+
 [program:rtl_433]
 command=/usr/local/bin/rtl_433 -F "mqtt://<mqtt_IP>,retain=0,devices=rtl_433[/model][/id]"
 autostart=true
@@ -64,4 +64,3 @@ Which gives this for output:
 ```
 
 You should now be good to go.
-

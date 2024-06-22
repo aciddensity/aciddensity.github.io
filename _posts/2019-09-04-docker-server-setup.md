@@ -11,30 +11,26 @@ layout: post
 ---
 
 
-# Synopsis #
+## Synopsis ##
+
 In this post I will attempt to outline my current configuration for my Docker server.
 
+### General Info ###
 
-
-## General Info ##
 The Docker host is running on a Lenovo M92P work station running Linux Mint 18.1. This distro was chosen only because that's what I had on hand at the time.
 If I were to redo the server I would chose something like Ubuntu Server, CentOS, or possibly Regolith.
 
-
-
 ### Current Docker Containers ###
-| Container Name | Bound Ports | Bound Volumes | 
-| -------------- | ----------- | ------------- | 
-| Heimdall       | 80 -> 9080  |       ?       | 
-| Home Assistant |     ?       |       ?       | 
-| InfluxDB       |     ?       |       ?       | 
-| Grafana        |     ?       |       ?       | 
-| PiHole         |     ?       |       ?       | 
-| Torrents-CSV   |     ?       |       ?       | 
 
-
+| Container Name | Bound Ports | Bound Volumes |
+| -------------- | ----------- | ------------- |
+| Heimdall       | 80 -> 9080  |       ?       |
+| Home Assistant |     ?       |       ?       |
+| InfluxDB       |     ?       |       ?       |
+| Grafana        |     ?       |       ?       |
+| PiHole         |     ?       |       ?       |
+| Torrents-CSV   |     ?       |       ?       |
 
 ### Port Bindings ###
+
 ***Important: None of my containers are accessible from outside my home network, not even my Home Assistant.***
-
-

@@ -1,17 +1,15 @@
 ---
-title: 
+title: Golden Image Based VMs 
 date: 2024-06-20 00:00
-modified: 
+modified: 2024-06-21 20:00
 category: 
-tags:
-slug: 
+tags: linux libvirt vms debian namespaces nftables
+slug: golden-image-based-vms
 authors: Acid Density
 summary: 
 published: true
 layout: post
 ---
-
-# Golden Image Based VMs
 
 ***With Linux, libvirt, and network namespaces***
 
