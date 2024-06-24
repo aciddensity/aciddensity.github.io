@@ -20,6 +20,9 @@ footer_entries:
   - title: github
     url: https://github.com/aciddensity
 
+  - title: mastodon
+    url: https://infosec.exchange/@AcidDensity
+
   - title: feed
     url: feed.xml
 
